@@ -1074,14 +1074,6 @@ video {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.object-top{
-  -o-object-position: top;
-     object-position: top;
-}
-.object-bottom{
-  -o-object-position: bottom;
-     object-position: bottom;
-}
 .object-center{
   -o-object-position: center;
      object-position: center;
