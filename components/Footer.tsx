@@ -1,7 +1,12 @@
+'use client'
 import Link from 'next/link'
 import { Phone, Mail, MapPin } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 export default function Footer() {
+  const { t, i18n } = useTranslation('common')
+  const locale = i18n.language
+
   return (
     <footer className="bg-dark text-white">
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -15,12 +20,12 @@ export default function Footer() {
                 </svg>
               </div>
               <div>
-                <div className="font-display text-xl font-semibold leading-tight">Dr. Elvin Hasanli</div>
-                <div className="text-xs text-gray-400 tracking-widest uppercase">Neurologist</div>
+                <div className="font-display text-xl font-semibold leading-tight">{t('doctor_name')}</div>
+                <div className="text-xs text-gray-400 tracking-widest uppercase">{t('doctor_specialty')}</div>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Providing compassionate, evidence-based neurological care with over 10 years of experience in Baku and beyond.
+              {t('footer_brand_description')}
             </p>
             <div className="flex gap-3">
               {['facebook', 'instagram', 'linkedin'].map(s => (
@@ -38,54 +43,68 @@ export default function Footer() {
 
           {/* Specialties */}
           <div>
-            <h4 className="font-semibold text-sm tracking-widest uppercase text-accent mb-5">Specialties</h4>
+            <h4 className="font-semibold text-sm tracking-widest uppercase text-accent mb-5">{t('specialties')}</h4>
             <ul className="space-y-3 text-gray-400 text-sm">
-              {['Headache & Migraine', 'Epilepsy & Seizures', 'Multiple Sclerosis', 'Parkinson\'s Disease', 'Stroke Care', 'Memory Disorders'].map(s => (
-                <li key={s}><Link href="/specialties" className="hover:text-white transition-colors">{s}</Link></li>
+              {[
+                { key: 'headache_migraine_title', label: 'Headache & Migraine' },
+                { key: 'epilepsy_seizures_title', label: 'Epilepsy & Seizures' },
+                { key: 'multiple_sclerosis_title', label: 'Multiple Sclerosis' },
+                { key: 'parkinsons_disease_title', label: 'Parkinson\'s Disease' },
+                { key: 'stroke_neurology_title', label: 'Stroke Care' },
+                { key: 'memory_disorders_title', label: 'Memory Disorders' }
+              ].map(s => (
+                <li key={s.key}><Link href={`/${locale}/specialties`} className="hover:text-white transition-colors">{t(s.key)}</Link></li>
               ))}
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-sm tracking-widest uppercase text-accent mb-5">Services</h4>
+            <h4 className="font-semibold text-sm tracking-widest uppercase text-accent mb-5">{t('services')}</h4>
             <ul className="space-y-3 text-gray-400 text-sm">
-              {['EEG Testing', 'EMG / NCS', 'Brain MRI Guidance', 'Botox for Migraines', 'Nerve Block Injections', 'Telehealth Consults'].map(s => (
-                <li key={s}><Link href="/services" className="hover:text-white transition-colors">{s}</Link></li>
+              {[
+                { key: 'eeg_testing', label: 'EEG Testing' },
+                { key: 'emg_ncs', label: 'EMG / NCS' },
+                { key: 'brain_mri_guidance', label: 'Brain MRI Guidance' },
+                { key: 'botox_for_migraine', label: 'Botox for Migraines' },
+                { key: 'nerve_block_injection', label: 'Nerve Block Injections' },
+                { key: 'telehealth_visit', label: 'Telehealth Consults' }
+              ].map(s => (
+                <li key={s.key}><Link href={`/${locale}/services`} className="hover:text-white transition-colors">{t(s.key)}</Link></li>
               ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-sm tracking-widest uppercase text-accent mb-5">Contact</h4>
+            <h4 className="font-semibold text-sm tracking-widest uppercase text-accent mb-5">{t('contact')}</h4>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={15} className="text-accent mt-0.5 flex-shrink-0" />
-                <span>28 Nizami Street, 3rd Floor<br/>Baku AZ1000, Azerbaijan</span>
+                <span>{t('address_full')}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={15} className="text-accent flex-shrink-0" />
-                <a href="tel:+994501234567" className="hover:text-white transition-colors">+994 50 123-45-67</a>
+                <a href={`tel:${t('phone_number')}`} className="hover:text-white transition-colors">{t('phone_number')}</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={15} className="text-accent flex-shrink-0" />
-                <a href="mailto:dr.hasanli@elvinmd.az" className="hover:text-white transition-colors">dr.hasanli@elvinmd.az</a>
+                <a href={`mailto:${t('email')}`} className="hover:text-white transition-colors">{t('email')}</a>
               </li>
             </ul>
             <div className="mt-6 pt-6 border-t border-white/10">
-              <div className="text-xs text-gray-500 mb-1">Office Hours</div>
-              <div className="text-sm text-gray-300">Mon – Fri: 9:00 AM – 6:00 PM</div>
-              <div className="text-sm text-gray-300">Saturday: 10:00 AM – 2:00 PM</div>
+              <div className="text-xs text-gray-500 mb-1">{t('office_hours_heading')}</div>
+              <div className="text-sm text-gray-300">{t('monday_friday')}: {t('monday_friday_hours')}</div>
+              <div className="text-sm text-gray-300">{t('saturday')}: {t('saturday_hours')}</div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
-          <p>© 2024 Dr. Elvin Hasanli, MD. All rights reserved.</p>
+          <p>{t('copyright', { year: new Date().getFullYear() })}</p>
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Use</Link>
+            <Link href="#" className="hover:text-white transition-colors">{t('privacy_policy')}</Link>
+            <Link href="#" className="hover:text-white transition-colors">{t('terms_of_use')}</Link>
           </div>
         </div>
       </div>
