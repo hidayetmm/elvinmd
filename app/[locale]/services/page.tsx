@@ -8,14 +8,14 @@ import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/navigation'
 
 const services = [
-  { title: 'eeg_testing_title', desc: 'eeg_testing_desc', duration: '45–90 min' },
-  { title: 'emg_ncs_title', desc: 'emg_ncs_desc', duration: '60–90 min' },
-  { title: 'botox_for_migraines_title', desc: 'botox_for_migraines_desc', duration: '30 min' },
-  { title: 'lumbar_puncture_title', desc: 'lumbar_puncture_desc', duration: '30–45 min' },
+  { title: 'neurological_consultation_title', desc: 'neurological_consultation_desc', duration: '45–60 min' },
+  { title: 'eeg_testing_title', desc: 'eeg_testing_desc', duration: '30–60 min' },
+  { title: 'emg_ncs_title', desc: 'emg_ncs_desc', duration: '30–60 min' },
+  { title: 'evoked_potentials_title', desc: 'evoked_potentials_desc', duration: '30–60 min' },
   { title: 'nerve_block_injections_title', desc: 'nerve_block_injections_desc', duration: '15–20 min' },
+  { title: 'lumbar_puncture_title', desc: 'lumbar_puncture_desc', duration: '30–45 min' },
   { title: 'cognitive_assessment_title', desc: 'cognitive_assessment_desc', duration: '45–60 min' },
-  { title: 'neurological_consultation_title', desc: 'neurological_consultation_desc', duration: '60 min' },
-  { title: 'telehealth_consultation_title', desc: 'telehealth_consultation_desc', duration: '30–45 min' },
+  { title: 'second_opinion_title', desc: 'second_opinion_desc', duration: '45–60 min' },
 ]
 
 export default function Services() {

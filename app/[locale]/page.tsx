@@ -5,18 +5,22 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import AnimatedSection from '@/components/AnimatedSection'
 import Counter from '@/components/Counter'
-import { ChevronRight, Star, CheckCircle2, Phone, ArrowRight, Brain, Zap, Eye, Activity, Heart, Stethoscope } from 'lucide-react'
+import { ChevronRight, CheckCircle2, Phone, ArrowRight, Brain, Zap, Eye, Activity, Heart, HeartPulse, Hand, Moon, Stethoscope, Award } from 'lucide-react'
 import Image from "next/image";
 import ElvinHasanliImg from '/public/images/elvin-md.jpeg'
 import { useTranslation } from 'react-i18next'
+import BrainImage from '../../public/images/beyin.jpg'
 
 const specialties = [
   { icon: Brain, title: 'headache_migraine_title', desc: 'headache_migraine_desc' },
   { icon: Zap, title: 'epilepsy_seizures_title', desc: 'epilepsy_seizures_desc' },
   { icon: Activity, title: 'multiple_sclerosis_title', desc: 'multiple_sclerosis_desc' },
   { icon: Heart, title: 'parkinsons_disease_title', desc: 'parkinsons_disease_desc' },
-  { icon: Eye, title: 'stroke_neurology_title', desc: 'stroke_neurology_desc' },
+  { icon: HeartPulse, title: 'stroke_neurology_title', desc: 'stroke_neurology_desc' },
   { icon: Stethoscope, title: 'memory_disorders_title', desc: 'memory_disorders_desc' },
+  { icon: Hand, title: 'neuromuscular_title', desc: 'neuromuscular_desc' },
+  { icon: Eye, title: 'neuro_ophthalmology_title', desc: 'neuro_ophthalmology_desc' },
+  { icon: Moon, title: 'sleep_disorders_title', desc: 'sleep_disorders_desc' },
 ]
 
 const checkupPlans = [
@@ -41,12 +45,6 @@ const checkupPlans = [
     items: ['memory_health_checkup_item1', 'memory_health_checkup_item2', 'memory_health_checkup_item3'],
     img: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&q=80',
   },
-]
-
-const testimonials = [
-  { name: 'Lena Mammadova', role: 'migraine_patient', text: 'testimonial_lena', rating: 5 },
-  { name: 'Farid Aliyev', role: 'epilepsy_patient', text: 'testimonial_farid', rating: 5 },
-  { name: 'Nigar Huseynova', role: 'ms_patient', text: 'testimonial_nigar', rating: 5 },
 ]
 
 const whyUs = [
@@ -105,19 +103,10 @@ export default function Home() {
             {/* Trust badge */}
             <div className="mt-10 flex items-center gap-4"
               style={{ animation: 'fadeUp 0.8s ease 0.6s forwards', opacity: 0 }}>
-              <div className="flex -space-x-2">
-                {['2', '3', '4', '5', '6'].map(n => (
-                  <div key={n} className="w-9 h-9 rounded-full border-2 border-white/30 bg-white/20 flex items-center justify-center text-white text-xs font-bold overflow-hidden">
-                    {n}
-                  </div>
-                ))}
+              <div className="w-11 h-11 rounded-full border-2 border-white/30 bg-white/20 flex items-center justify-center text-white">
+                <Award size={20} />
               </div>
-              <div>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#FFD700" stroke="none" />)}
-                </div>
-                <div className="text-white/70 text-sm">{t('patients_treated_count')}</div>
-              </div>
+              <div className="text-white/70 text-sm">{t('hero_badge')}</div>
             </div>
           </div>
 
@@ -127,7 +116,7 @@ export default function Home() {
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl max-w-md mx-auto">
               <Image
                 src={ElvinHasanliImg}
-                alt="Dr. Elvin Hasanli"
+                alt="Uzm. Dr. Elvin Hasanli"
                 className="w-full h-[520px] object-cover object-center"
               />
               {/* Floating cards */}
@@ -166,10 +155,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-white text-center">
             {[
-              { n: 15, suf: '+', label: t('years_experience') },
-              { n: 2400, suf: '+', label: t('patients_treated') },
-              { n: 6, suf: '', label: t('neurology_specialties_count') },
-              { n: 98, suf: '%', label: t('patient_satisfaction') },
+              { n: 5, suf: '', label: t('stat_years_training') },
+              { n: 14, suf: '', label: t('stat_clinical_areas') },
+              { n: 10, suf: '', label: t('stat_congresses') },
+              { n: 1, suf: '', label: t('stat_book_chapter') },
             ].map(({ n, suf, label }) => (
               <div key={label}>
                 <div className="font-display text-5xl font-semibold mb-1">
@@ -193,8 +182,8 @@ export default function Home() {
                 className="rounded-3xl w-full h-[480px] object-cover"
               />
               <div className="absolute -bottom-8 -right-8 bg-light rounded-3xl p-6 shadow-lg max-w-[220px]">
-                <div className="font-display text-4xl text-primary font-semibold">2,400+</div>
-                <div className="text-gray-500 text-sm mt-1">{t('patients_treated_description')}</div>
+                <div className="font-display text-4xl text-primary font-semibold">2025</div>
+                <div className="text-gray-500 text-sm mt-1">{t('board_badge_description')}</div>
               </div>
             </div>
           </AnimatedSection>
@@ -319,45 +308,12 @@ export default function Home() {
             </Link>
           </AnimatedSection>
           <AnimatedSection direction="right">
-            <img
-              src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=700&q=80"
+            <Image
+              src={BrainImage}
               alt="Doctor at work"
-              className="rounded-3xl w-full h-[480px] object-cover"
+              className="rounded-3xl w-full h-[480px] object-contain"
             />
           </AnimatedSection>
-        </div>
-      </section>
-
-      {/* ─── TESTIMONIALS ─── */}
-      <section className="py-24 bg-[#f7fbfc]">
-        <div className="max-w-7xl mx-auto px-6">
-          <AnimatedSection className="text-center mb-14">
-            <div className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">{t('patient_stories')}</div>
-            <h2 className="font-display text-4xl md:text-5xl text-dark font-light">{t('what_patients_say')}</h2>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t_item, i) => (
-              <AnimatedSection key={t_item.name} delay={i * 0.15} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                <div className="flex gap-0.5 mb-4">
-                  {[...Array(t_item.rating)].map((_, j) => <Star key={j} size={15} fill="#00B4C8" stroke="none" />)}
-                </div>
-                <svg className="text-light mb-4" width="32" height="24" fill="currentColor" viewBox="0 0 32 24">
-                  <path d="M0 24V14.4C0 6.4 5.333 1.6 16 0l1.6 2.4C12.267 3.6 9.067 6 8 10H14V24H0zm18 0V14.4C18 6.4 23.333 1.6 34 0l1.6 2.4C30.267 3.6 27.067 6 26 10H32V24H18z"/>
-                </svg>
-                <p className="text-gray-600 leading-relaxed text-sm mb-6 italic">"{t(t_item.text)}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center font-bold text-accent text-sm">
-                    {t_item.name.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-dark text-sm">{t_item.name}</div>
-                    <div className="text-gray-400 text-xs">{t(t_item.role)}</div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
         </div>
       </section>
 

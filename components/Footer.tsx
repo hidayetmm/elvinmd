@@ -49,7 +49,7 @@ export default function Footer() {
                 { key: 'headache_migraine_title', label: 'Headache & Migraine' },
                 { key: 'epilepsy_seizures_title', label: 'Epilepsy & Seizures' },
                 { key: 'multiple_sclerosis_title', label: 'Multiple Sclerosis' },
-                { key: 'parkinsons_disease_title', label: 'Parkinson\'s Disease' },
+                { key: 'parkinsons_disease_title', label: 'Movement Disorders' },
                 { key: 'stroke_neurology_title', label: 'Stroke Care' },
                 { key: 'memory_disorders_title', label: 'Memory Disorders' }
               ].map(s => (
@@ -65,10 +65,10 @@ export default function Footer() {
               {[
                 { key: 'eeg_testing', label: 'EEG Testing' },
                 { key: 'emg_ncs', label: 'EMG / NCS' },
-                { key: 'brain_mri_guidance', label: 'Brain MRI Guidance' },
-                { key: 'botox_for_migraine', label: 'Botox for Migraines' },
+                { key: 'evoked_potentials_title', label: 'Evoked Potentials (VEP / SEP)' },
                 { key: 'nerve_block_injection', label: 'Nerve Block Injections' },
-                { key: 'telehealth_visit', label: 'Telehealth Consults' }
+                { key: 'lumbar_puncture_title', label: 'Lumbar Puncture' },
+                { key: 'second_opinion', label: 'Second Opinion' }
               ].map(s => (
                 <li key={s.key}><Link href={`/${locale}/services`} className="hover:text-white transition-colors">{t(s.key)}</Link></li>
               ))}

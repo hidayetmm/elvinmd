@@ -4,8 +4,8 @@ import { ReactNode } from 'react'
 import I18nProvider from '@/components/I18nProvider'
 
 export const metadata: Metadata = {
-  title: 'Dr. Elvin Hasanli — Neurologist',
-  description: 'Board-certified neurologist specializing in headache disorders, epilepsy, and neurodegenerative diseases. Compassionate, evidence-based neurological care.',
+  title: 'Uzm. Dr. Elvin Hasanli — Neurologist',
+  description: 'Uzm. Dr. Elvin Hasanli is a neurologist in Baku, trained at Ege University Hospital in Izmir and certified by the Turkish Neurology Board. Headache, epilepsy, MS, stroke, movement disorders, EEG and EMG.',
 }
 
 async function getMessages(locale: string) {

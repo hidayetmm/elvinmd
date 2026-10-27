@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import AnimatedSection from '@/components/AnimatedSection'
 import Link from 'next/link'
-import { Brain, Zap, Activity, Heart, Eye, Stethoscope, ArrowRight } from 'lucide-react'
+import { Brain, Zap, Activity, Heart, HeartPulse, Hand, Moon, Eye, Stethoscope, ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/navigation'
 
@@ -12,43 +12,64 @@ const specialties = [
     icon: Brain,
     title: 'headache_migraine_title',
     desc: 'headache_migraine_desc_full',
-    treatments: ['botox_for_chronic_migraine', 'cgrp_inhibitor_therapy', 'trigger_management', 'acute_rescue_medications'],
+    treatments: ['headache_type_diagnosis', 'preventive_acute_treatment', 'gon_spg_blocks', 'trigger_management'],
     img: 'https://images.unsplash.com/photo-1502139214982-d0ad755818d8?w=700&q=80',
   },
   {
     icon: Zap,
     title: 'epilepsy_seizures_title',
     desc: 'epilepsy_seizures_desc_full',
-    treatments: ['ambulatory_video_eeg', 'anti_seizure_medications', 'ketogenic_diet_support', 'surgical_referral_pathway'],
+    treatments: ['eeg_recording', 'anti_seizure_medications', 'medication_side_effect_review', 'surgical_referral_pathway'],
     img: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=700&q=80',
   },
   {
     icon: Activity,
     title: 'multiple_sclerosis_title',
     desc: 'multiple_sclerosis_desc_full',
-    treatments: ['disease_modifying_therapy', 'mri_monitoring', 'relapse_management', 'fatigue_spasticity_care'],
+    treatments: ['disease_modifying_therapy', 'mri_monitoring', 'relapse_management', 'ms_cognition_followup'],
     img: 'https://images.unsplash.com/photo-1576671081837-49000212a370?w=700&q=80',
   },
   {
     icon: Heart,
     title: 'parkinsons_disease_title',
     desc: 'parkinsons_disease_desc_full',
-    treatments: ['dopaminergic_therapy', 'dbs_candidacy_evaluation', 'gait_balance_training', 'tremor_management'],
+    treatments: ['dopaminergic_therapy', 'tremor_management', 'gait_balance_training', 'dbs_candidacy_evaluation'],
     img: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=700&q=80',
   },
   {
-    icon: Eye,
+    icon: HeartPulse,
     title: 'stroke_neurology_title',
     desc: 'stroke_neurology_desc_full',
-    treatments: ['secondary_prevention', 'anticoagulation_management', 'post_stroke_rehab_guidance', 'carotid_artery_evaluation'],
+    treatments: ['stroke_cause_workup', 'secondary_prevention', 'anticoagulation_management', 'post_stroke_rehab_guidance'],
     img: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=700&q=80',
   },
   {
     icon: Stethoscope,
     title: 'memory_disorders_title',
     desc: 'memory_disorders_desc_full',
-    treatments: ['cognitive_screening', 'neuropsychological_testing', 'cholinesterase_inhibitors', 'caregiver_support'],
+    treatments: ['cognitive_screening', 'dementia_type_workup', 'cholinesterase_inhibitors', 'caregiver_support'],
     img: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=700&q=80',
+  },
+  {
+    icon: Hand,
+    title: 'neuromuscular_title',
+    desc: 'neuromuscular_desc_full',
+    treatments: ['emg_full_range', 'myasthenia_treatment', 'neuropathy_cause_workup', 'neuromuscular_followup'],
+    img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&q=80',
+  },
+  {
+    icon: Eye,
+    title: 'neuro_ophthalmology_title',
+    desc: 'neuro_ophthalmology_desc_full',
+    treatments: ['fundus_oct', 'vep_sep_tests', 'audiometry_vertigo', 'iih_treatment'],
+    img: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=700&q=80',
+  },
+  {
+    icon: Moon,
+    title: 'sleep_disorders_title',
+    desc: 'sleep_disorders_desc_full',
+    treatments: ['sleep_history_review', 'insomnia_plan', 'narcolepsy_diagnosis', 'sleep_medication_review'],
+    img: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=700&q=80',
   },
 ]
 

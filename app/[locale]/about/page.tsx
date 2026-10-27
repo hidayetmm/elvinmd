@@ -8,17 +8,16 @@ import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/navigation'
 
 const timeline = [
-  { year: '2024', title: 'timeline_senior_neurologist_title', place: 'timeline_senior_neurologist_place', desc: 'timeline_senior_neurologist_desc' },
-  { year: '2018', title: 'timeline_fellowship_title', place: 'timeline_fellowship_place', desc: 'timeline_fellowship_desc' },
-  { year: '2012', title: 'timeline_residency_title', place: 'timeline_residency_place', desc: 'timeline_residency_desc' },
-  { year: '2008', title: 'timeline_md_degree_title', place: 'timeline_md_degree_place', desc: 'timeline_md_degree_desc' },
+  { year: '2025', title: 'timeline_board_title', place: 'timeline_board_place', desc: 'timeline_board_desc' },
+  { year: '2020 – 2025', title: 'timeline_residency_title', place: 'timeline_residency_place', desc: 'timeline_residency_desc' },
+  { year: '2011 – 2017', title: 'timeline_md_degree_title', place: 'timeline_md_degree_place', desc: 'timeline_md_degree_desc' },
 ]
 
 const awards = [
-  'award_best_neurologist',
-  'award_ean_member',
-  'award_botox_certified',
-  'award_published_researcher',
+  'award_board_certificate',
+  'award_book_chapter',
+  'award_gcp_course',
+  'award_congresses',
 ]
 
 export default function About() {
@@ -50,7 +49,7 @@ export default function About() {
                 className="rounded-3xl w-full h-[520px] object-cover"
               />
               <div className="absolute -bottom-6 -right-6 bg-accent text-white rounded-2xl p-6 text-center">
-                <div className="font-display text-4xl font-semibold">10+</div>
+                <div className="font-display text-4xl font-semibold">5</div>
                 <div className="text-sm opacity-90">{t('years_of_experience')}</div>
               </div>
             </div>

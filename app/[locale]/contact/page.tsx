@@ -11,9 +11,9 @@ const appointmentTypes = [
   'new_patient_consultation',
   'follow_up_visit',
   'eeg_testing',
-  'botox_for_migraine',
+  'emg_ncs',
   'nerve_block_injection',
-  'telehealth_visit',
+  'lumbar_puncture_title',
   'second_opinion',
 ]
 
